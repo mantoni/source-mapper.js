@@ -1,0 +1,30 @@
+{
+  "name": "source-mapper",
+  "version": "0.0.0",
+  "description": "Replace URLs in track traces with original sources",
+  "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
+  "homepage": "https://github.com/mantoni/source-mapper.js",
+  "main": "./lib/source-mapper.js",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "start": "mocha --watch",
+    "lint": "jslint --color \"**/*.js\"",
+    "test": "npm run lint && mocha"
+  },
+  "dependencies": {
+    "through": "^2.3.4",
+    "convert-source-map": "~0.3.5",
+    "source-map": "~0.1.37"
+  },
+  "devDependencies": {
+    "mocha": "^1.20",
+    "jslint": "^0.5",
+    "browserify": "^4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mantoni/source-mapper.js.git"
+  }
+}
