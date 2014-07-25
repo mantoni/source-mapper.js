@@ -85,4 +85,16 @@ describe('source-mapper', function () {
     assert.equal(mapper.line(c, 'file://that/file/test:5'), base + ':4');
   });
 
+  it('does not map "abc http://"', function () {
+    var line = 'abc http://localhost:5';
+
+    assert.equal(mapper.line(c, line), line);
+  });
+
+  it('does not map "http://localhost:5/"', function () {
+    var line = 'http://localhost:5/';
+
+    assert.equal(mapper.line(c, line), line);
+  });
+
 });
