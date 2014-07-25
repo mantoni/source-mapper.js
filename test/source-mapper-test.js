@@ -18,6 +18,7 @@ var mapper     = require('../lib/source-mapper');
 describe('source-mapper', function () {
   var js;
   var x;
+  var c;
 
   before(function (done) {
     var b = browserify();
@@ -30,6 +31,7 @@ describe('source-mapper', function () {
 
   beforeEach(function () {
     x = mapper.extract(js);
+    c = mapper.consumer(x.map);
   });
 
   it('removes sourceMappingURL from js', function () {
@@ -63,6 +65,24 @@ describe('source-mapper', function () {
     });
     node.stdin.write(x.js);
     node.stdin.end();
+  });
+
+  it('maps about:blank line', function () {
+    var base = path.resolve('test', 'fixture', 'thrower.js');
+
+    assert.equal(mapper.line(c, 'about:blank:5'), base + ':4');
+  });
+
+  it('maps http:// line', function () {
+    var base = path.resolve('test', 'fixture', 'thrower.js');
+
+    assert.equal(mapper.line(c, 'http://localhost/test:5'), base + ':4');
+  });
+
+  it('maps file:// line', function () {
+    var base = path.resolve('test', 'fixture', 'thrower.js');
+
+    assert.equal(mapper.line(c, 'file://that/file/test:5'), base + ':4');
   });
 
 });
