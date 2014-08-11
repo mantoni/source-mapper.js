@@ -85,6 +85,15 @@ describe('source-mapper', function () {
     assert.equal(mapper.line(c, 'file://that/file/test:5'), base + ':4');
   });
 
+  it('maps IE 10 stack line', function () {
+    var base = path.resolve('test', 'fixture', 'thrower.js');
+
+    assert.equal(
+      mapper.line(c, 'at Anonymous function (Unknown script code:5:1)'),
+      'at Anonymous function (' + base + ':4:1)'
+    );
+  });
+
   it('does not map "abc http://"', function () {
     var line = 'abc http://localhost:5';
 
