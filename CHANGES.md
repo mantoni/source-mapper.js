@@ -1,5 +1,9 @@
 # Changes
 
+## 0.2.1
+
+- Map IE 10 stack traces
+
 ## 0.2.0
 
 - Reduce false matches
