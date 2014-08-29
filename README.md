@@ -1,6 +1,6 @@
 # Source Mapper
 
-Replace URLs in track traces with original sources based on [source-map][]. For
+Replace URLs in stack traces with original sources based on [source-map][]. For
 node and the browser.
 
 ## Install
