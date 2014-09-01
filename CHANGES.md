@@ -1,5 +1,9 @@
 # Changes
 
+## 0.3.0
+
+- Add optional `offset` parameter
+
 ## 0.2.1
 
 - Map IE 10 stack traces

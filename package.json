@@ -1,6 +1,6 @@
 {
   "name": "source-mapper",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Replace URLs in track traces with original sources",
   "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
   "homepage": "https://github.com/mantoni/source-mapper.js",
