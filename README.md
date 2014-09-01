@@ -23,8 +23,16 @@ var throughStream = sourceMapper.stream(extracted.map);
 - `extract(string)` extracts an inline source map from the given string. The
   returned object has the `js` without source maps and a `map` with source
   maps.
-- `stream(map)` returns a [through][] stream that replaces URLs in stack traces
-  with the original source location.
+- `consumer(map)` returns a source map consumer for the given `map`.
+- `line(consumer, line[, offset])` maps the given line to the original source
+  using a consumer. If `offset` is given, it is substracted from the line
+  number.
+- `stream(consumer[, offset])` returns a [through][] stream that replaces URLs
+  in stack traces with the original source location using a consumer. If
+  `offset` is given, it is substracted from the line number.
+- `stream(map[, offset])` returns a [through][] stream that replaces URLs in
+  stack traces with the original source location using a source map. If
+  `offset` is given, it is substracted from the line number.
 
 ## Development
 
