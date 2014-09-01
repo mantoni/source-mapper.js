@@ -14,6 +14,17 @@ var exec       = require('child_process').exec;
 var path       = require('path');
 var mapper     = require('../lib/source-mapper');
 
+function spy(obj, prop) {
+  var fn = obj[prop];
+  function s() {
+    s.calls.push(Array.prototype.slice.call(arguments));
+    return fn.apply(this, arguments);
+  }
+  s.calls = [];
+  obj[prop] = s;
+  return s;
+}
+
 
 describe('source-mapper', function () {
   var js;
@@ -104,6 +115,25 @@ describe('source-mapper', function () {
     var line = 'http://localhost:5/';
 
     assert.equal(mapper.line(c, line), line);
+  });
+
+  it('passes line number minus offset to consumer (line)', function () {
+    var s = spy(c, 'originalPositionFor');
+
+    mapper.line(c, 'about:blank:12', 7);
+
+    assert.equal(s.calls.length, 1);
+    assert.equal(s.calls[0][0].line, 5);
+  });
+
+  it('passes line number minus offset to consumer (stream)', function () {
+    var s = spy(c, 'originalPositionFor');
+
+    var stream = mapper.stream(c, 7);
+    stream.write('about:blank:12\n');
+
+    assert.equal(s.calls.length, 1);
+    assert.equal(s.calls[0][0].line, 5);
   });
 
 });
