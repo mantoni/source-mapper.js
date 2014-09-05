@@ -43,6 +43,11 @@ npm install
 npm test
 ```
 
+## Compatibility
+
+- Node 0.10 or later
+- Browserify 5.9 or later
+
 ## License
 
 MIT
