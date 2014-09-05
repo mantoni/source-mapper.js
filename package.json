@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "mocha": "^1.20",
-    "jslint": "^0.5",
-    "browserify": "^4.2"
+    "jslint": "^0.6",
+    "browserify": "^5.9"
   },
   "repository": {
     "type": "git",

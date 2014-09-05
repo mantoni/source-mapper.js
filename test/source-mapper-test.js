@@ -32,10 +32,10 @@ describe('source-mapper', function () {
   var c;
 
   before(function (done) {
-    var b = browserify();
+    var b = browserify({ debug : true });
     b.add('./test/fixture/thrower.js');
-    b.bundle({ debug : true }, function (err, script) {
-      js = script;
+    b.bundle(function (err, script) {
+      js = script.toString();
       done(err);
     });
   });
@@ -63,7 +63,7 @@ describe('source-mapper', function () {
         d += data;
       });
       s.on('end', function () {
-        var base = path.resolve('test', 'fixture', 'thrower.js');
+        var base = 'test/fixture/thrower.js';
         var arr  = d.split('\n');
 
         assert.equal(arr[1], base + ':4');
@@ -79,30 +79,29 @@ describe('source-mapper', function () {
   });
 
   it('maps about:blank line', function () {
-    var base = path.resolve('test', 'fixture', 'thrower.js');
+    var mapped = mapper.line(c, 'about:blank:5');
 
-    assert.equal(mapper.line(c, 'about:blank:5'), base + ':4');
+    assert.equal(mapped, 'test/fixture/thrower.js:4');
   });
 
   it('maps http:// line', function () {
-    var base = path.resolve('test', 'fixture', 'thrower.js');
+    var mapped = mapper.line(c, 'http://localhost/test:5');
 
-    assert.equal(mapper.line(c, 'http://localhost/test:5'), base + ':4');
+    assert.equal(mapped, 'test/fixture/thrower.js:4');
   });
 
   it('maps file:// line', function () {
-    var base = path.resolve('test', 'fixture', 'thrower.js');
+    var mapped = mapper.line(c, 'file://that/file/test:5');
 
-    assert.equal(mapper.line(c, 'file://that/file/test:5'), base + ':4');
+    assert.equal(mapped, 'test/fixture/thrower.js:4');
   });
 
   it('maps IE 10 stack line', function () {
-    var base = path.resolve('test', 'fixture', 'thrower.js');
+    var mapped = mapper.line(c,
+        'at Anonymous function (Unknown script code:5:1)');
 
-    assert.equal(
-      mapper.line(c, 'at Anonymous function (Unknown script code:5:1)'),
-      'at Anonymous function (' + base + ':4:1)'
-    );
+    assert.equal(mapped,
+        'at Anonymous function (test/fixture/thrower.js:4:1)');
   });
 
   it('does not map "abc http://"', function () {
