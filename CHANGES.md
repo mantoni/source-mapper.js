@@ -1,5 +1,12 @@
 # Changes
 
+## 1.0.0
+
+- Use Browserify 5.9 for testing
+- Map `<anonymous>` lines
+- Use through2
+- Use convert-source-map ^0.4
+
 ## 0.3.0
 
 - Add optional `offset` parameter
