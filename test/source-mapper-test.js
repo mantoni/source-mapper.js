@@ -104,6 +104,12 @@ describe('source-mapper', function () {
         'at Anonymous function (test/fixture/thrower.js:4:1)');
   });
 
+  it('maps anonymous line', function () {
+    var mapped = mapper.line(c, 'at Object.fail (<anonymous>:5:1)');
+
+    assert.equal(mapped, 'at Object.fail (test/fixture/thrower.js:4:1)');
+  });
+
   it('does not map "abc http://"', function () {
     var line = 'abc http://localhost:5';
 
