@@ -1,5 +1,9 @@
 # Source Mapper
 
+[![Build Status]](https://travis-ci.org/mantoni/source-mapper.js)
+[![SemVer]](http://semver.org)
+[![License]](https://github.com/mantoni/source-mapper.js/blob/master/LICENSE)
+
 Replace URLs in stack traces with original sources based on [source-map][]. For
 node and the browser.
 
@@ -52,5 +56,8 @@ npm test
 
 MIT
 
+[Build Status]: http://img.shields.io/travis/mantoni/source-mapper.js.svg
+[SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
+[License]: http://img.shields.io/npm/l/source-mapper.svg
 [source-map]: https://github.com/mozilla/source-map
 [through]: https://github.com/dominictarr/through
