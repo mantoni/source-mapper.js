@@ -1,6 +1,6 @@
 {
   "name": "source-mapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replace strack traces with original sources using source maps",
   "keywords": ["stack", "trace", "source-maps"],
   "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",

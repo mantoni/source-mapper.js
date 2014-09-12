@@ -1,5 +1,10 @@
 # Changes
 
+## 1.0.1
+
+- Fix parsing traces with columns
+- Improve matcher regexp and trace formatting
+
 ## 1.0.0
 
 - Use Browserify 5.9 for testing
