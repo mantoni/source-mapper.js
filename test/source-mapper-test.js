@@ -36,13 +36,10 @@ describe('source-mapper', function () {
     b.add('./test/fixture/thrower.js');
     b.bundle(function (err, script) {
       js = script.toString();
+      x = mapper.extract(js);
+      c = mapper.consumer(x.map);
       done(err);
     });
-  });
-
-  beforeEach(function () {
-    x = mapper.extract(js);
-    c = mapper.consumer(x.map);
   });
 
   it('removes sourceMappingURL from js', function () {
@@ -90,10 +87,34 @@ describe('source-mapper', function () {
     assert.equal(mapped, 'test/fixture/thrower.js:4');
   });
 
+  it('maps http:// line with port', function () {
+    var mapped = mapper.line(c, 'http://localhost:1234/test:5');
+
+    assert.equal(mapped, 'test/fixture/thrower.js:4');
+  });
+
+  it('maps http:// line with column', function () {
+    var mapped = mapper.line(c, 'http://localhost/test:5:0');
+
+    assert.equal(mapped, 'test/fixture/thrower.js:4:0');
+  });
+
+  it('maps http:// line with port and column', function () {
+    var mapped = mapper.line(c, 'http://localhost:1234/test:5:0');
+
+    assert.equal(mapped, 'test/fixture/thrower.js:4:0');
+  });
+
   it('maps file:// line', function () {
     var mapped = mapper.line(c, 'file://that/file/test:5');
 
     assert.equal(mapped, 'test/fixture/thrower.js:4');
+  });
+
+  it('maps file:// line with column', function () {
+    var mapped = mapper.line(c, 'file://that/file/test:5:0');
+
+    assert.equal(mapped, 'test/fixture/thrower.js:4:0');
   });
 
   it('maps IE 10 stack line', function () {
@@ -139,6 +160,18 @@ describe('source-mapper', function () {
 
     assert.equal(s.calls.length, 1);
     assert.equal(s.calls[0][0].line, 5);
+  });
+
+  it('returns original line if line number is 0', function () {
+    var line = 'http://localhost:0';
+
+    assert.equal(mapper.line(c, line), line);
+  });
+
+  it('returns original line if line number minus offset is 0', function () {
+    var line = 'http://localhost:7';
+
+    assert.equal(mapper.line(c, line, 7), line);
   });
 
 });
