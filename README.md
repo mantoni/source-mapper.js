@@ -31,10 +31,10 @@ var throughStream = sourceMapper.stream(extracted.map);
 - `line(consumer, line[, offset])` maps the given line to the original source
   using a consumer. If `offset` is given, it is substracted from the line
   number.
-- `stream(consumer[, offset])` returns a [through][] stream that replaces URLs
+- `stream(consumer[, offset])` returns a [through2][] stream that replaces URLs
   in stack traces with the original source location using a consumer. If
   `offset` is given, it is substracted from the line number.
-- `stream(map[, offset])` returns a [through][] stream that replaces URLs in
+- `stream(map[, offset])` returns a [through2][] stream that replaces URLs in
   stack traces with the original source location using a source map. If
   `offset` is given, it is substracted from the line number.
 
@@ -60,4 +60,4 @@ MIT
 [SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
 [License]: http://img.shields.io/npm/l/source-mapper.svg
 [source-map]: https://github.com/mozilla/source-map
-[through]: https://github.com/dominictarr/through
+[through2]: https://github.com/rvagg/through2
