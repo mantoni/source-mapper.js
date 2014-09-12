@@ -4,8 +4,8 @@
 [![SemVer]](http://semver.org)
 [![License]](https://github.com/mantoni/source-mapper.js/blob/master/LICENSE)
 
-Replace URLs in stack traces with original sources based on [source-map][]. For
-node and the browser.
+Replace stack traces with original sources using [source-map][]. For node and
+the browser.
 
 ## Install
 
