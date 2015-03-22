@@ -11,7 +11,6 @@
 var assert     = require('assert');
 var browserify = require('browserify');
 var exec       = require('child_process').exec;
-var path       = require('path');
 var mapper     = require('../lib/source-mapper');
 
 function spy(obj, prop) {
