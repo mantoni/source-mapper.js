@@ -1,5 +1,11 @@
 # Changes
 
+## 1.0.2
+
+- Bump dependencies
+- Remove unused require
+- Run tests on node 0.10 and 0.12
+
 ## 1.0.1
 
 - Fix parsing traces with columns
