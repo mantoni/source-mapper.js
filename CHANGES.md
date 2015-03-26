@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.3
+
+- Handle more stack trace formats and unify indentation
+
 ## 1.0.2
 
 - Bump dependencies
