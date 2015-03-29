@@ -51,6 +51,10 @@ describe('source-mapper', function () {
     assert.equal(x.js.indexOf('//# sourceMappingURL='), -1);
   });
 
+  it('removes sourcesContent from map', function () {
+    assert.equal(x.map.sourcesContent, undefined);
+  });
+
   it('maps node stdin stack', function (done) {
     var node = exec('node', function (err) {
       if (!err) {
