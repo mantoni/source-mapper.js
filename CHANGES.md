@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.4
+
+- Bump through2 to ^1.1 to align with browserify
+
 ## 1.0.3
 
 - Handle more stack trace formats and unify indentation
