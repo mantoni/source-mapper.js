@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.5
+
+- Add "files" to package.json
+
 ## 1.0.4
 
 - Bump through2 to ^1.1 to align with browserify
