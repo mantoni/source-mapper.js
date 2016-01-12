@@ -1,5 +1,9 @@
 # Changes
 
+## 1.0.6
+
+- Don't print a potentially wrong column number
+
 ## 1.0.5
 
 - Add "files" to package.json
