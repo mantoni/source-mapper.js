@@ -70,8 +70,8 @@ describe('source-mapper', function () {
         var arr  = d.split('\n');
 
         assert.equal(arr[1], '      ' + base + ':4');
-        assert.equal(arr[5], '      at ' + base + ':4:9');
-        assert.equal(arr[6], '      at Object.<anonymous> (' + base + ':5:2)');
+        assert.equal(arr[6], '      at ' + base + ':4');
+        assert.equal(arr[7], '      at Object.1 (' + base + ':5)');
         done();
       });
       s.write(err.toString());
@@ -108,13 +108,13 @@ describe('source-mapper', function () {
   it('maps http://localhost line with column', function () {
     var mapped = mapper.line(c, 'http://localhost/test:5:0');
 
-    assert.equal(mapped, '      test/fixture/thrower.js:4:0');
+    assert.equal(mapped, '      test/fixture/thrower.js:4');
   });
 
   it('maps http://localhost line with port and column', function () {
     var mapped = mapper.line(c, 'http://localhost:1234/test:5:0');
 
-    assert.equal(mapped, '      test/fixture/thrower.js:4:0');
+    assert.equal(mapped, '      test/fixture/thrower.js:4');
   });
 
   it('maps file:// line', function () {
@@ -132,7 +132,7 @@ describe('source-mapper', function () {
   it('maps file:// line with column', function () {
     var mapped = mapper.line(c, 'file://that/file/test:5:0');
 
-    assert.equal(mapped, '      test/fixture/thrower.js:4:0');
+    assert.equal(mapped, '      test/fixture/thrower.js:4');
   });
 
   it('maps IE 10 stack line', function () {
@@ -140,33 +140,33 @@ describe('source-mapper', function () {
         'at Anonymous function (Unknown script code:5:1)');
 
     assert.equal(mapped,
-        '      at Anonymous function (test/fixture/thrower.js:4:1)');
+        '      at Anonymous function (test/fixture/thrower.js:4)');
   });
 
   it('maps anonymous file line', function () {
     var mapped = mapper.line(c, 'at Object.fail (<anonymous>:5:1)');
 
-    assert.equal(mapped, '      at Object.fail (test/fixture/thrower.js:4:1)');
+    assert.equal(mapped, '      at Object.fail (test/fixture/thrower.js:4)');
   });
 
   it('maps anonymous function line from html', function () {
     var mapped = mapper.line(c, '      at Object.<anonymous> (some.html:5:1)');
 
     assert.equal(mapped,
-      '      at Object.<anonymous> (test/fixture/thrower.js:4:1)');
+      '      at Object.<anonymous> (test/fixture/thrower.js:4)');
   });
 
   it('maps line from html', function () {
     var mapped = mapper.line(c, 'at Test.Runnable.run (Runner.html:5:7)');
 
     assert.equal(mapped,
-      '      at Test.Runnable.run (test/fixture/thrower.js:4:7)');
+      '      at Test.Runnable.run (test/fixture/thrower.js:4)');
   });
 
   it('maps Safari line', function () {
     var mapped = mapper.line(c, 'equal@file:///some/path:5:1');
 
-    assert.equal(mapped, '      equal test/fixture/thrower.js:4:1');
+    assert.equal(mapped, '      equal test/fixture/thrower.js:4');
   });
 
   it('does not map "abc http://localhost:5"', function () {
