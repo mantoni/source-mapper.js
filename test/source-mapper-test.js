@@ -70,8 +70,13 @@ describe('source-mapper', function () {
         var arr  = d.split('\n');
 
         assert.equal(arr[1], '      ' + base + ':4');
-        assert.equal(arr[6], '      at ' + base + ':4');
-        assert.equal(arr[7], '      at Object.1 (' + base + ':5)');
+        if (Number(process.version.substring(1, 2))) {
+          assert.equal(arr[6], '      at ' + base + ':4');
+          assert.equal(arr[7], '      at Object.1 (' + base + ':5)');
+        } else {
+          assert.equal(arr[5], '      at ' + base + ':4');
+          assert.equal(arr[6], '      at Object.<anonymous> (' + base + ':5)');
+        }
         done();
       });
       s.write(err.toString());
