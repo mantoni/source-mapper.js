@@ -1,5 +1,9 @@
 # Changes
 
+## 2.0.0
+
+- Streams 3
+
 ## 1.0.6
 
 - Don't print a potentially wrong column number
