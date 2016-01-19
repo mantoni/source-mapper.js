@@ -56,8 +56,8 @@ npm test
 
 MIT
 
-[Build Status]: http://img.shields.io/travis/mantoni/source-mapper.js.svg
-[SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
-[License]: http://img.shields.io/npm/l/source-mapper.svg
+[Build Status]: https://img.shields.io/travis/mantoni/source-mapper.js.svg
+[SemVer]: https://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
+[License]: https://img.shields.io/npm/l/source-mapper.svg
 [source-map]: https://github.com/mozilla/source-map
 [through2]: https://github.com/rvagg/through2
