@@ -17,7 +17,10 @@
     "watch": "mocha --watch",
     "lint": "jslint --color \"**/*.js\"",
     "pretest": "npm run lint",
-    "test": "mocha"
+    "test": "mocha",
+    "preversion": "npm test",
+    "version": "changes --commits",
+    "postversion": "git push --follow-tags && npm publish"
   },
   "dependencies": {
     "through2": "^2.0.0",
@@ -25,6 +28,7 @@
     "source-map": "~0.5.3"
   },
   "devDependencies": {
+    "@studio/changes": "^1.5.2",
     "browserify": "^16.2.2",
     "jslint": "^0.12.0",
     "mocha": "^5.2.0"
