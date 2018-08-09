@@ -2,7 +2,11 @@
   "name": "source-mapper",
   "version": "2.0.0",
   "description": "Replace strack traces with original sources using source maps",
-  "keywords": ["stack", "trace", "source-maps"],
+  "keywords": [
+    "stack",
+    "trace",
+    "source-maps"
+  ],
   "author": "Maximilian Antoni <mail@maxantoni.de> (http://maxantoni.de)",
   "homepage": "https://github.com/mantoni/source-mapper.js",
   "main": "./lib/source-mapper.js",
@@ -21,9 +25,9 @@
     "source-map": "~0.5.3"
   },
   "devDependencies": {
-    "mocha": "^2.3.4",
+    "browserify": "^13.0.0",
     "jslint": "^0.8",
-    "browserify": "^13.0.0"
+    "mocha": "^5.2.0"
   },
   "repository": {
     "type": "git",
