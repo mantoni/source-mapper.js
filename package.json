@@ -1,6 +1,6 @@
 {
   "name": "source-mapper",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Replace strack traces with original sources using source maps",
   "keywords": [
     "stack",
