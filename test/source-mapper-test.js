@@ -174,6 +174,19 @@ describe('source-mapper', function () {
     assert.equal(mapped, '      equal test/fixture/thrower.js:4');
   });
 
+  it('maps Puppeteer line', function () {
+    var mapped = mapper.line(c, 'at __puppeteer_evaluation_script__:5:1');
+
+    assert.equal(mapped, '      at test/fixture/thrower.js:4');
+  });
+
+  it('maps Puppeteer line with name', function () {
+    var mapped = mapper.line(c,
+      'at equal (__puppeteer_evaluation_script__:5:1)');
+
+    assert.equal(mapped, '      at equal (test/fixture/thrower.js:4)');
+  });
+
   it('does not map "abc http://localhost:5"', function () {
     var line = 'abc http://localhost:5';
 
