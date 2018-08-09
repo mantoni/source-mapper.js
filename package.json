@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "browserify": "^16.2.2",
-    "jslint": "^0.8",
+    "jslint": "^0.12.0",
     "mocha": "^5.2.0"
   },
   "repository": {
