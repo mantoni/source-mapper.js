@@ -31,7 +31,7 @@
     "@studio/changes": "^1.5.2",
     "browserify": "^16.2.2",
     "jslint": "^0.12.0",
-    "mocha": "^5.2.0"
+    "mocha": "^10.2.0"
   },
   "repository": {
     "type": "git",
